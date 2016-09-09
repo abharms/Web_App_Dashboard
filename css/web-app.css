@@ -7,18 +7,24 @@
 
 .col-nav {
 	position: fixed;
-	width: 75px;
+	width: 0;
 	height: 100%;
 	left: 0;
-	top: 150px;
+	top: 133px;
 	background-color: #4d4c72;
 	transition: width ease .5s;
+	z-index: 1;
 }
 
 .col-main {
 	position: relative;
-	margin-left: 75px;
-	transition: margin-left ease .5s;
+	width: 100%;
+	transition: padding-left ease .5s;
+}
+
+.toggle-width {
+	padding-left: 75px;
+	overflow-x: hidden;
 }
 
 .fa {
@@ -34,7 +40,40 @@
 	text-transform: uppercase;
 }
 
+h3,
+h4,
+h5,
+h6,
+p,
+.chart-links li a {
+	color: #8f8f8f;
+}
 
+
+#search,
+#timezone,
+#msg {
+	width: 95%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+.search {
+	height: 45px;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+.new-members h3,
+.recent-activity h3,
+.lineChartWrapper h3,
+.barChartWrapper h3,
+.donutChartWrapper h3 {
+	margin-left: 15px;
+}
 
 
 
@@ -47,6 +86,8 @@ header {
 	height: 75px;
 	width: 100%;
 	background-color: #7477bf;
+	position: relative;
+	z-index: 9999;
 }
 
 .title {
@@ -61,19 +102,27 @@ header {
 
 .header-content-right {
 	float: right;
-	margin: 30px 15px 0 0;
+	margin: 20px 15px 0 0;
 }
 
 #bell {
 	height: 23px;
 	width: 23px;
 	float: left;
+	margin: 6px 12px 0 0;
 }
 
 
 .header-content-right h5 {
-	margin: 0 12px;
+	margin: 8px 12px 0 12px;
 	float: right;
+	color: #fff;
+}
+
+#header-photo {
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
 }
 
 /*----------------------------
@@ -91,10 +140,9 @@ header {
 	margin-left: 14px;
 }
 
-.hide {
-	display: none;
+body.show nav {
+	width: 75px;
 }
-
 
 .col-nav img {
 	height: 30px;
@@ -103,20 +151,20 @@ header {
 
 ul {
     list-style: none;
-    margin: 15px 0 0 0;
+    margin: 95px 0 0 0;
     padding: 0;
   }  
     
 li {
-    margin-bottom: 25px;
+    margin: 25px 0;
 }
 
 .col-nav ul li a {
-	padding: 22px;
+	padding: 20px;
 }
 
-.col-nav ul li:first-child {
-	border-left: 3px solid #d2d2d2;
+.green-border {
+	border-left: 3px solid #81c98f;
 }
 
 
@@ -125,25 +173,25 @@ li {
 	Search Area
 ------------------------------*/
 
-.search-area {
 
-}
 
 .dashboard-title {
 	display: inline-block;
 	width: 125px;
+	margin-bottom: 30px;
 	border-right: 1px solid #d2d2d2;
 }
 
 .dashboard-title h3 {
 	margin-left: 10px;
-	color: #676666;
 }
 
 .searchBox {
 	float: right;
-	width: 100px;
 	height: 58px;
+	width: 70%;
+	border-bottom: 1px solid #d2d2d2;
+	background-color: #fbfbfb;
 }
 
 .searchBox form input {
@@ -162,19 +210,66 @@ li {
 	color: #fff;
 	border-radius: 4px;
 	vertical-align: middle;
+	padding: 0 15px 0 15px;
 }
 
-.fa-times{
+.alert p {
+	display: inline-block;
 	color: #fff;
+}
+
+.alert p span {
+	font-weight: bold;
+}
+
+.alert a {
+	float: right;
+}
+
+.fa-times {
+	color: #fff;
+	font-size: 22px !important;
+	margin-top: 12px;
 }
 
 /*----------------------------
 	Chart
 ------------------------------*/
 
+#lineChartSection {
+
+}
+
+
 .lineChartWrapper {
 	height: 420px;
 	width: 98%;
+	margin-top: 25px;
+	margin-bottom: 140px;
+}
+
+.lineChartWrapper h3 {
+	display: inline-block;
+}
+
+.chart-links {
+	float: right;
+	margin-bottom: 20px;
+}
+
+.chart-links li {
+	display: inline;
+	padding-left: 10px;
+}
+
+.chart-links li a {
+	text-decoration: none;
+	padding: 6px 14px;
+}
+
+.active {
+	background-color: #81c98f;
+	border-radius: 18px;
 }
 
 .barChartWrapper {
@@ -208,22 +303,41 @@ li {
 }
 
 .social-inner-box a {
-	padding: 5%;
-	border-radius: 54%;
+	padding: 15px;
+	border-radius: 50%;
 	background-color: #7377bf;
 	position: absolute;
 	top: 20px;
 	left: 20px;
 }
 
-.social-icon img {
-	color: #fff;
-	height: 45px;
-	width: 45px;
+.social-name {
+	display: inline-block;
+	margin-left: 35%;
+	margin-top: 12px;
 }
 
-.fa {
-	font-size: 40px !important;
+.social-name h3 {
+	margin: 5px 0 0 0;
+}
+
+.social-name p {
+	font-size: 50px;
+	margin: 0;
+}
+
+.social-icon i {
+	color: #fff;
+	height: 42px;
+	width: 42px;
+	text-align: center;
+	padding-top: 2px;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-google-plus {
+	font-size: 38px !important;
 }
 
 
@@ -236,11 +350,6 @@ li {
 	border-top: 1px solid #d2d2d2;
 	border-right: 1px solid #d2d2d2;
 	border-bottom: 1px solid #d2d2d2;
-}
-
-.new-members h3,
-.recent-activity h3 {
-	margin-left: 15px;
 }
 
 .member {
@@ -274,6 +383,9 @@ li {
 	Message User
 ------------------------------*/
 
+.message-user .inner-box {
+	padding-left: 25px;
+}
 
 .message-user form input {
 	float: left;
@@ -285,15 +397,38 @@ li {
 	width: 95%;
 }
 
-.message-user form textarea {
-	height: 150px;
+.inner-box form {
+	position: relative;
 }
 
-#send-btn {
+.message-user form textarea {
+	height: 150px;
+
+}
+
+#msgUserSubmitBtn {
 	margin: 15px 0 50px 0;
 	width: 95%;
-	
+	height: 50px;
+	background-color: #7377bf;
+	color: white;
+	border: none;
+	border-radius: 3px;
+
 }
+
+#dropdown {
+	height: 150px;
+	width: 95%;
+	border: 1px solid #d2d2d2;
+	z-index: 999;
+}
+
+#formErrorMsg {
+	color: red;
+}
+
+
 
 
 /*----------------------------
@@ -357,10 +492,7 @@ li {
 
 #timezone {
 	margin-top: 15px;
-	width: 95%;
-	height: 45px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+	
 }
 
 .saveCancel-btns {
@@ -383,11 +515,57 @@ li {
 	background-color: #b2b2b2;
 }
 
+.settings form {
+	position: relative;
+}
+
+.settings form i {
+	position: absolute;
+	top: 18px;
+	right: 28px;
+	 padding: 10px 12px;
+}
+
+.fa-chevron-down {
+	color: gray;
+}
+
 /*----------------------------
 	Media Queries
 ------------------------------*/
 
 @media screen and (min-width: 769px) {
+
+
+/*----------------------------
+	Nav
+------------------------------*/
+
+.hamburger {
+	display: none;
+}
+
+.col-main {
+	padding-left: 75px;
+	overflow-x: hidden;
+}
+
+.col-nav {
+	position: fixed;
+	top: 0;
+	width: 75px;
+}
+
+/*----------------------------
+	Search Area
+------------------------------*/
+
+.dashboard-title {
+	margin-left: 75px;
+}
+
+
+
 
 	#dailyTrafficMobileUsers {
 		overflow: auto;
@@ -423,8 +601,7 @@ li {
 
 	.social-name {
 		float: right;
-		margin-right: 50%;
-		margin-top: 2%;
+		margin-right: 15px;
 	}
 
 	.members-activity {
@@ -535,6 +712,18 @@ li {
     width: 100%;
   }
 
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	/*----------------------------
+	Social Media Widgets
+------------------------------*/
+
+	.social-name {
+		margin-right: 50px;
+	}
 
 }
 
