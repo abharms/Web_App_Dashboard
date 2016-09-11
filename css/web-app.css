@@ -16,6 +16,11 @@
 	z-index: 1;
 }
 
+.hide {
+	display: none;
+	transition: width ease .5s;
+}
+
 .col-main {
 	position: relative;
 	width: 100%;

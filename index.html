@@ -17,7 +17,7 @@
 			<h1>Web App</h1>
 		</div>
 		<div class="header-content-right">
-			<img id="bell"src="icons/icon-bell.svg">
+			<img id="bell" src="icons/icon-bell.svg">
 			<img id="header-photo" src="img/rem.jpg" alt="Dude man">
 			<h5>Austin Harms</h5>
 		</div>
@@ -67,7 +67,7 @@
 				<h3>Traffic</h3>
 				<ul class="chart-links">
 					<li><a  class="active" id="hourlyBtn" href="#">Hourly</a></li>
-					<li><a href="#">Daily</a></li>
+					<li><a  id="dailyBtn" href="#">Daily</a></li>
 					<li><a href="#">Weekly</a></li>
 					<li><a href="#">Monthly</a></li>
 				</ul>
@@ -219,6 +219,7 @@
 
 			<form autocomplete="off">
 	    		<input class="search" id="timezone" type="text" list="timezoneList" name="search" placeholder="Select Timezone" />
+	    			<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 	    			<datalist id="timezoneList">
 	    				<option value="UTC-11: Samoa Standard Time">
 	    				<option value="UTC-10: Hawaii-Aleutian Standard Time (HST)">

@@ -17,12 +17,11 @@ var handlers = {
         // If it does not have a class of "show", add it, which will expand the left column.
         $("body").toggleClass("show");
         $( ".col-main" ).toggleClass("toggle-width");
+        $(".col-nav").toggleClass('hide');
     });
   },
-  hideAlert: function() {
-        $("#alert-x").on("click", function(){
+  hideAlert: function() {    
         $(".alert").hide();
-    })
   },
   selectMenuOptions: function() {
         $('.col-nav ul li').on('click', function() {
@@ -51,13 +50,7 @@ var donut = document.getElementById("donutChart");
 Chart.defaults.global.legend.display = false;
 
 
-
-var myLineChart = new Chart(line, {
-    type: 'line',
-    data: {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-        datasets: [
-            {
+var hourly = {
                 label: "My First dataset",
                 fill: true,
                 lineTension: 0.1,
@@ -78,8 +71,9 @@ var myLineChart = new Chart(line, {
                 pointHitRadius: 10,
                 data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
                 spanGaps: false,         
-            },
-            {
+            }
+
+var daily = {
                 label: "My Second dataset",
                 fill: true,
                 lineTension: 0.1,
@@ -100,23 +94,41 @@ var myLineChart = new Chart(line, {
                 pointHitRadius: 10,
                 data: [1750, 250, 4000, 3100, 2000, 3300, 7150, 550, 2350, 1650, 750, 2550],
                 spanGaps: false,
-            },   
-        ],
+            }
+
+ function createChart(element, datasets) {
+    return myLineChart = new Chart(element, {
+    type: 'line',
+    data: {
+        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+        datasets: datasets,
   },
     options: {
          responsive: true,
          maintainAspectRatio: false, 
         }
-});
+  });
+ }
+
+ var myLineChart = createChart(line, [hourly, daily]);
+
+
 
 var secondChart = myLineChart.data.datasets[1];
 
 
 //Click button to remove second dataset
 $('#hourlyBtn').on("click", function(){
-    $(secondChart).remove();
+    createChart(line, [hourly]);
+    return false;
 });
 
+var dailyBtn = $('#dailyBtn');
+
+dailyBtn.on("click", function(){
+    createChart(line, [daily]);
+    return false;
+});
 
 
 
@@ -229,6 +241,43 @@ input.placeholder = "Loading options...";
 // Set up and make the request.
 request.open('GET', 'js/html-elements.json', true);
 request.send();
+
+
+
+
+
+
+
+
+
+
+
+
+// $.getJSON('js/html-elements.json', function(data) {
+//     $dataList.html('');
+//     var $options = $();
+//     data.forEach(function(item) {
+        
+//         var $option = $('<option>' + item + '</option>');
+//         $option.val(item);
+//         $options.add($option);
+
+
+//     });
+    
+//     $($input).keyup(function() {
+//             $(data).each(function() {
+//                 if($(this).text().indexOf($input.val().toLowerCase()) > -1) {
+//                     $dataList.append($options);
+//                 } else {
+                   
+//                 }
+            
+//             });
+//         });
+    
+// });
+
 
 
 
