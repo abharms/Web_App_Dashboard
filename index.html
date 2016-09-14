@@ -2,7 +2,7 @@
 <html>
 <meta charset="UTF-8"> 
 <head>
-	<title>Web App</title>
+	<title>Web Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/web-app.css">
 	<script src="https://use.fontawesome.com/c286d4eb4b.js"></script>
@@ -14,7 +14,7 @@
 	
 	<header>
 		<div class="title">
-			<h1>Web App</h1>
+			<h1>Web Dashboard</h1>
 		</div>
 		<div class="header-content-right">
 			<img id="bell" src="icons/icon-bell.svg">
@@ -44,13 +44,10 @@
 	<div class="search-area">
 		<div class="dashboard-title">
 			<h3>Dashboard</h3>
-		</div>
-		<div class="searchBox">
 			<form>
 				<input type="text" name="search" placeholder="Search">
 			</form>
 		</div>
-		
 	</div>
 
 		<!--Alert Box-->
@@ -66,10 +63,10 @@
 			<div class="lineChartWrapper">
 				<h3>Traffic</h3>
 				<ul class="chart-links">
-					<li><a  class="active" id="hourlyBtn" href="#">Hourly</a></li>
+					<li><a  class="active" id="hourlyBtn" href="#" onclick="toggleActiveClass();">Hourly</a></li>
 					<li><a  id="dailyBtn" href="#">Daily</a></li>
-					<li><a href="#">Weekly</a></li>
-					<li><a href="#">Monthly</a></li>
+					<li><a  id="weeklyBtn" href="#">Weekly</a></li>
+					<li><a  id="monthlyBtn" href="#">Monthly</a></li>
 				</ul>
 				<canvas id="lineChart" width="300" height="150"></canvas>
 			</div>
@@ -219,7 +216,6 @@
 
 			<form autocomplete="off">
 	    		<input class="search" id="timezone" type="text" list="timezoneList" name="search" placeholder="Select Timezone" />
-	    			<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 	    			<datalist id="timezoneList">
 	    				<option value="UTC-11: Samoa Standard Time">
 	    				<option value="UTC-10: Hawaii-Aleutian Standard Time (HST)">
@@ -252,6 +248,7 @@
 	</div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

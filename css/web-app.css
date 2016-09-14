@@ -17,7 +17,7 @@
 }
 
 .hide {
-	display: none;
+	/*display: none;*/
 	transition: width ease .5s;
 }
 
@@ -182,27 +182,36 @@ li {
 
 .dashboard-title {
 	display: inline-block;
-	width: 125px;
+	width: 95%;
 	margin-bottom: 30px;
-	border-right: 1px solid #d2d2d2;
+	background-color: #fbfbfb;
 }
 
 .dashboard-title h3 {
 	margin-left: 10px;
+	display: inline-block;
+}
+
+.dashboard-title form {
+	display: inline-block;
+	float: right;
+}
+
+.dashboard-title form input {
+	height: 35px;
+	margin: 12px 5px 0 0;
 }
 
 .searchBox {
-	float: right;
-	height: 58px;
-	width: 70%;
+	
 	border-bottom: 1px solid #d2d2d2;
-	background-color: #fbfbfb;
+
 }
 
+
+
 .searchBox form input {
-	float: right;
-	height: 35px;
-	margin: 12px 5px 0 0;
+
 }
 
 /*----------------------------
