@@ -14,9 +14,11 @@
 	background-color: #4d4c72;
 	transition: width ease .5s;
 	z-index: 1;
+	display: none;
+	overflow: hidden;
 }
 
-.hide {
+.transition {
 	/*display: none;*/
 	transition: width ease .5s;
 }
@@ -25,11 +27,13 @@
 	position: relative;
 	width: 100%;
 	transition: padding-left ease .5s;
+	margin-top: 50px;
 }
 
 .toggle-width {
 	padding-left: 75px;
 	overflow-x: hidden;
+
 }
 
 .fa {
@@ -72,6 +76,7 @@ textarea:focus {
 	outline: none;
 }
 
+#socialStats h3,
 .new-members h3,
 .recent-activity h3,
 .lineChartWrapper h3,
@@ -219,12 +224,11 @@ li {
 ------------------------------*/
 
 .alert {
-	width: 100%;
 	background-color: #7477bf;
 	color: #fff;
 	border-radius: 4px;
 	vertical-align: middle;
-	padding: 0 15px 0 15px;
+	padding: 0 15px 35px 15px;
 }
 
 .alert p {
@@ -273,7 +277,7 @@ li {
 
 .chart-links li {
 	display: inline;
-	padding-left: 10px;
+	padding-left: 6px;
 }
 
 .chart-links li a {
@@ -292,7 +296,7 @@ li {
 }
 
 .donutChartWrapper {
-	height: 420px;
+	height: 451px;
 	width: 98%;
 }
 
@@ -550,35 +554,39 @@ li {
 
 @media screen and (min-width: 769px) {
 
+	/*----------------------------
+		Nav
+	------------------------------*/
 
-/*----------------------------
-	Nav
-------------------------------*/
+	.hamburger {
+		display: none;
+	}
 
-.hamburger {
-	display: none;
-}
+	.col-main {
+		padding-left: 75px;
+		overflow-x: hidden;
+	}
 
-.col-main {
-	padding-left: 75px;
-	overflow-x: hidden;
-}
+	.col-nav {
+		position: fixed;
+		top: 0;
+		width: 75px;
+		display: inline;
+	}
 
-.col-nav {
-	position: fixed;
-	top: 0;
-	width: 75px;
-}
+	/*----------------------------
+		Alert
+	------------------------------*/
 
-/*----------------------------
-	Search Area
-------------------------------*/
-
-.dashboard-title {
-	margin-left: 75px;
-}
+	.alert {
+		padding: 0 15px 0px 15px;
+	}
 
 
+
+	/*----------------------------
+		Search Area
+	------------------------------*/
 
 
 	#dailyTrafficMobileUsers {
@@ -586,14 +594,13 @@ li {
 		margin: 80px 0 80px 0;
 		border-bottom: 1px solid #d2d2d2;
 		overflow-y: hidden;
+		height: 500px;
 	}
 
 	.barChartWrapper,
 	.donutChartWrapper {
 		width: 50%;
 		border-top: 1px solid #d2d2d2;
-		
-
 	}
 
 	.barChartWrapper {

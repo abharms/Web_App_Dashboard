@@ -2,7 +2,7 @@
 <html>
 <meta charset="UTF-8"> 
 <head>
-	<title>Web Dashboard</title>
+	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/web-app.css">
 	<script src="https://use.fontawesome.com/c286d4eb4b.js"></script>
@@ -14,7 +14,7 @@
 	
 	<header>
 		<div class="title">
-			<h1>Web Dashboard</h1>
+			<h1>Dashboard</h1>
 		</div>
 		<div class="header-content-right">
 			<img id="bell" src="icons/icon-bell.svg">
@@ -40,18 +40,17 @@
 
 	<!--Main Content Area-->
 
-	
-	<div class="search-area">
-		<div class="dashboard-title">
-			<h3>Dashboard</h3>
-			<form>
-				<input type="text" name="search" placeholder="Search">
-			</form>
-		</div>
-	</div>
-
 		<!--Alert Box-->
 	<div class="col-main">
+		<div class="search-area">
+			<div class="dashboard-title">
+				<h3>Dashboard</h3>
+				<form>
+					<input type="text" name="search" placeholder="Search">
+				</form>
+			</div>
+		</div>
+
 		<div class="alert">
 			<p><span>Alert</span> You have experienced an unusually high traffic volume! Please contact your web host to increase your bandwidth</p>
 			<a  id="alert-x" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -63,7 +62,7 @@
 			<div class="lineChartWrapper">
 				<h3>Traffic</h3>
 				<ul class="chart-links">
-					<li><a  class="active" id="hourlyBtn" href="#" onclick="toggleActiveClass();">Hourly</a></li>
+					<li><a  class="active" id="hourlyBtn" href="#">Hourly</a></li>
 					<li><a  id="dailyBtn" href="#">Daily</a></li>
 					<li><a  id="weeklyBtn" href="#">Weekly</a></li>
 					<li><a  id="monthlyBtn" href="#">Monthly</a></li>
