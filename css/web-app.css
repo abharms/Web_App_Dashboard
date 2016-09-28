@@ -19,7 +19,6 @@
 }
 
 .transition {
-	/*display: none;*/
 	transition: width ease .5s;
 }
 
@@ -108,6 +107,7 @@ header {
 	color: #fff;
 	margin: 0 0 0 15px;
 	padding-top: 16px;
+	font-size: 24px;
 }
 
 .header-content-right {
@@ -210,14 +210,8 @@ li {
 .searchBox {
 	
 	border-bottom: 1px solid #d2d2d2;
-
 }
 
-
-
-.searchBox form input {
-
-}
 
 /*----------------------------
 	Alert Box
@@ -253,11 +247,6 @@ li {
 /*----------------------------
 	Chart
 ------------------------------*/
-
-#lineChartSection {
-
-}
-
 
 .lineChartWrapper {
 	height: 420px;
@@ -317,7 +306,6 @@ li {
 	position: relative;
 	margin-left: 2.66666667%;
 	margin-right: 2.66666667%;
-	
 }
 
 .social-inner-box a {
@@ -421,7 +409,6 @@ li {
 
 .message-user form textarea {
 	height: 150px;
-
 }
 
 #msgUserSubmitBtn {
@@ -432,7 +419,6 @@ li {
 	color: white;
 	border: none;
 	border-radius: 3px;
-
 }
 
 #dropdown {
@@ -463,42 +449,65 @@ li {
 		------------------------------*/
 
 		.onoffswitch {
-		    position: relative; width: 135px;
-		    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+		    position: relative; 
+		    width: 135px;
+		    -webkit-user-select:none;
+		    -moz-user-select:none; 
+		    -ms-user-select:none;
 		}
 		.onoffswitch-checkbox {
 		    display: none;
 		}
 		.onoffswitch-label {
-		    display: block; overflow: hidden; cursor: pointer;
-		    border: 2px solid #999999; border-radius: 20px;
+		    display: block; 
+		    overflow: hidden; 
+		    cursor: pointer;
+		    border: 2px solid #999999; 
+		    border-radius: 20px;
 		}
 		.onoffswitch-inner {
-		    display: block; width: 200%; margin-left: -100%;
+		    display: block; 
+		    width: 200%; 
+		    margin-left: -100%;
 		    transition: margin 0.3s ease-in 0s;
 		}
 		.onoffswitch-inner:before, .onoffswitch-inner:after {
-		    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-		    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+		    display: block; 
+		    float: left; 
+		    width: 50%; 
+		    height: 30px; 
+		    padding: 0; 
+		    line-height: 30px;
+		    font-size: 14px; 
+		    color: white; 
+		    font-family: Trebuchet, Arial, sans-serif; 
+		    font-weight: bold;
 		    box-sizing: border-box;
 		}
 		.onoffswitch-inner:before {
 		    content: "On";
 		    padding-left: 10px;
-		    background-color: #7377bf; color: #FFFFFF;
+		    background-color: #7377bf; 
+		    color: #FFFFFF;
 		}
 		.onoffswitch-inner:after {
 		    content: "Off";
 		    padding-right: 10px;
-		    background-color: #b2b2b2; color: #FFFFFF;
+		    background-color: #b2b2b2; 
+		    color: #FFFFFF;
 		    text-align: right;
 		}
 		.onoffswitch-switch {
-		    display: block; width: 26px; margin: 2px;
+		    display: block; 
+		    width: 26px; 
+		    margin: 2px;
 		    background: #FFFFFF;
-		    position: absolute; top: 0; bottom: 0;
+		    position: absolute; 
+		    top: 0; 
+		    bottom: 0;
 		    right: 101px;
-		    border: 2px solid #999999; border-radius: 20px;
+		    border: 2px solid #999999; 
+		    border-radius: 20px;
 		    transition: all 0.3s ease-in 0s; 
 		}
 		.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -541,7 +550,7 @@ li {
 	position: absolute;
 	top: 18px;
 	right: 28px;
-	 padding: 10px 12px;
+	padding: 10px 12px;
 }
 
 .fa-chevron-down {
@@ -625,9 +634,6 @@ li {
 		margin-right: 15px;
 	}
 
-	.members-activity {
-		border-top: 1px solid #d2d2d2;
-	}
 
 	/*----------------------------
 	New Members/Recent Activity
@@ -690,50 +696,12 @@ li {
 	Grid
 ------------------------------*/
 
-.row {
-	width: 100%;
-}
 
-.col-md-1 {
-    width: 8.333333%;
-  }
-  .col-md-2 {
-    width: 16.666667%;
-  }
   .col-md-3 {
     width: 28%;
     float: left;
   }
-  .col-md-4 {
-    width: 33.333333%;
-    float: left;
-  }
-  .col-md-5 {
-    width: 41.666667%;
-  }
-  .col-md-6 {
-    width: 50%;
-  }
-  .col-md-7 {
-    width: 58.333333%;
-  }
-  .col-md-8 {
-    width: 66.666667%;
-  }
-  .col-md-9 {
-    width: 75%;
-  }
-  .col-md-10 {
-    width: 83.333333%;
-  }
-  .col-md-11 {
-    width: 91.666667%;
-  }
-  .col-md-12 {
-    width: 100%;
-  }
-
-
+ 
 }
 
 @media screen and (min-width: 1200px) {

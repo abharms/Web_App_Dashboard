@@ -12,10 +12,7 @@ var $donut = $("#donutChart");
 //remove default chart legend
 Chart.defaults.global.legend.display = false;
 
-
-var handlers = (function(){
-    var services = {};
-    var config = {
+  var config = {
         fill: true,
         lineTension: 0.1,
         backgroundColor: "rgba(116,119,191,0.2)",
@@ -36,21 +33,7 @@ var handlers = (function(){
         spanGaps: false,
     };
 
-    var createChart = function($element, $chartDataSet) {
-        return myLineChart = new Chart($element, {
-        type: 'line',
-        data: {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-        datasets: $chartDataSet
-      },
-        options: {
-        responsive: true,
-        maintainAspectRatio: false, 
-      }
-    });
-  }
-
-    //Datasets
+        //Datasets
     var hourlyData = {
         label: "Hourly dataset",
         data: [1750, 250, 4000, 3100, 2000, 3300, 7150, 550, 2350, 1650, 750, 2550]
@@ -71,69 +54,94 @@ var handlers = (function(){
         data: [1750, 3250, 4600, 3100, 2500, 3300, 5150, 550, 2350, 610, 230, 2550]
     };
 
-  services.toggleMobileMenu = function() {
+
+var handlers = {
+    createChart: function($element, $chartDataSet) {
+        return myLineChart = new Chart($element, {
+        type: 'line',
+        data: {
+            labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+            datasets: $chartDataSet
+          },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+          }
+    });
+  },
+  
+  toggleMobileMenu: function() {
         // click on the hamburger icon)
         $("#nav-toggle").on("click", function(e) {
-        // stop default browser behavior
-        e.preventDefault();
-        // get the <body>. Does it currently have a class of "show? If it does, remove the class, which will collapse the left column.
-        // If it does not have a class of "show", add it, which will expand the left column.
-        $("body").toggleClass("show");
-        $( ".col-main" ).toggleClass("toggle-width");
-        $(".col-nav").toggleClass('transition');
+            // stop default browser behavior
+            e.preventDefault();
+            // get the <body>. Does it currently have a class of "show? If it does, remove the class, which will collapse the left column.
+            // If it does not have a class of "show", add it, which will expand the left column.
+            $("body").toggleClass("show");
+            $( ".col-main" ).toggleClass("toggle-width");
+            $(".col-nav").toggleClass('transition');
 
-        $(".col-nav").css("display", "inline");
+            $(".col-nav").css("display", "inline");
     });
-  };
+  },
 
-  services.hideAlert = function() {  
+  hideAlert: function() {
+        //hide alert box when X is clicked  
         $(".alert").click(function() {
             $(this).hide();
         });
-  };
+  },
 
-  services.selectMenuOptions = function() {
+  selectMenuOptions: function() {
+        //select items in left menu
         $('.col-nav ul li').on('click', function() {
-        $('.col-nav ul li').removeClass('green-border');
-        $(this).addClass('green-border').fadeIn('slow');
+            $('.col-nav ul li').removeClass('green-border');
+            $(this).addClass('green-border');
     });
-  };
+  },
 
-  function loadHourlyData(){
-      createChart($line, [$.extend(config, hourlyData)]);
+  //create functions to merge all datasets into config object
+  loadHourlyData: function() {
+      //create default chart and merge hourlyData into config object
+      handlers.createChart($line, [$.extend(config, hourlyData)]);
       return false;
-  }
+  },
 
-  function loadDailyData(){
-        createChart($line, [$.extend(config, dailyData)]);
+  loadDailyData: function() {
+        handlers.createChart($line, [$.extend(config, dailyData)]);
         return false;
-  }
+  },
 
-  services.toggleChartData = function() {
-    $('#hourlyBtn').on("click", loadHourlyData);
-    $('#dailyBtn').on("click", loadDailyData);
-    $('#weeklyBtn').on("click", function(){
-        createChart($line, [$.extend(config, weeklyData)]);
+  loadWeeklyData: function() {
+        handlers.createChart($line, [$.extend(config, weeklyData)]);
         return false;
-    });
-    $('#monthlyBtn').on("click", function(){
-        createChart($line, [$.extend(config, monthlyData)]);
-        return false;
-    });
-  };
+  },
 
-  services.toggleActiveClass = function() {
+  loadMonthlyData: function() {
+        handlers.createChart($line, [$.extend(config, monthlyData)]);
+        return false;
+  },
+
+  toggleChartData: function() {
+    //load corresponding data on click
+    $('#hourlyBtn').on("click", handlers.loadHourlyData);
+    $('#dailyBtn').on("click", handlers.loadDailyData);
+    $('#weeklyBtn').on("click", handlers.loadWeeklyData);
+    $('#monthlyBtn').on("click", handlers.loadMonthlyData);
+  },
+
+  toggleActiveClass: function() {
+    //remove and add active class to chart menu on click
     $('.chart-links li a').on('click', function(e) {
-    $('.chart-links li a').removeClass('active');
-    $(this).addClass('active');
-        e.preventDefault();
-        return false;
-    });
-    handlers.toggleChartData();
-  };
+        $('.chart-links li a').removeClass('active');
+        $(this).addClass('active');
+            e.preventDefault();
+            return false;
+        });
+  },
 
-  services.init = function(url){
-    loadHourlyData();
+  init: function(){
+    handlers.loadHourlyData();
     handlers.toggleMobileMenu();
     handlers.hideAlert();
     handlers.selectMenuOptions();
@@ -141,8 +149,8 @@ var handlers = (function(){
     handlers.toggleActiveClass();
   }
 
-  return services;
-})();
+ 
+};
 
 
 
@@ -218,10 +226,9 @@ var handlers = (function(){
 
 
 //Form Validation for Message User section
-function checkForm(form) {
+var checkForm = (function (form) {
     if(form.search.value === '' || form.user_message.value === '') {
     alert("Error: Input is empty!");
-    form.search.focus();
     return false;
   }
 
@@ -229,12 +236,11 @@ function checkForm(form) {
 
   if(!reg.test(form.search.value)) {
     alert("Error: Input contains invalid characters!");
-    form.search.focus();
     return false;
   }
 
   return true;
-}
+});
 
 
 
